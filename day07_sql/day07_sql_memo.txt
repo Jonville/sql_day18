@@ -1,0 +1,52 @@
+---------------------20230329----------------------
+
+반복문
+
+FOR ~LOOP 문
+
+	IS
+		TYPE 변수명 IS TABLE OF 변수의 타입
+		INDEX BY BINARY_INTEGER;		-- INDEX 타입은 1,2,3 ... 이렇게되기때문에
+										-- INTEGER 로 선언 해준다.
+		배열변수 변수명;
+		
+		i BINARY_INTEGER := 0;		-- 반복문에 쓸 변수
+	BEGIN
+		FOR 다른배열변수명 IN (
+							SELECT 문
+						) LOOP
+		i := i + 1;		-- SQL 은 INDEX 가 1부터 시작
+						-- 순차적으로 1,2,3,4~~ 이런식으로 올라갈것이기때문
+		
+		배열변수(i) := 다른배열변수명.컬럼명;
+		
+		END LOOP;
+		
+		FOR CNT IN 1..I LOOP		-- 1부터 i에 갈때까지 돈다 / 출력을 위한 FOR문
+			DBMS_OUTPUT.PUT_LINE(' 출력할 것들 ' || 배열변수(CNT));
+			
+		END LOOP;
+	END;
+
+LOOP 문
+
+	DECLARE
+		변수선언
+	BEGIN
+		LOOP
+			증가값
+		EXIT WHEN 최대값
+		END LOOP;
+	END;
+	
+WHILE 문
+
+	DECLARE
+		변수선언
+	BEGIN
+		WHILE 최대값 LOOP
+		
+			증가값
+			
+		END LOOP;
+	END;
